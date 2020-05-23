@@ -2,3 +2,4 @@
 <p>Trata-se de um pequeno jogo para treinar os conhecimentos básicos sobre funções, eventos, variáveis, condicionais e diretivas. </p>
 <p>Para executar basta abrir o 'index.html' com o navegador.</p>
 ![Screenshot](public/img/Capturar.png)
+
