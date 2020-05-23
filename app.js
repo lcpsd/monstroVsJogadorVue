@@ -27,11 +27,11 @@ new Vue({
 
             if(especial){
                 this.hurt("monsterLife", 1, 2,true, 'Monstro', 'Jogador', 'monster')
-                this.monsterLife > 0 ? this.hurt("playerLife", 20, 30,true, 'Jogador', 'Monstro', 'player') : null
+                this.monsterLife > 0 ? this.hurt("playerLife", 2, 4,true, 'Jogador', 'Monstro', 'player') : null
             } 
 
             this.hurt("monsterLife", 2, 4, false, 'Monstro', 'Jogador', 'monster')
-            this.monsterLife > 0 ? this.hurt("playerLife", 20, 30, false, 'Jogador', 'Monstro', 'player') : null
+            this.monsterLife > 0 ? this.hurt("playerLife", 4, 8, false, 'Jogador', 'Monstro', 'player') : null
         },
         hurt(who, min, max, especial, source, target, cls){
 
