@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <link rel="stylesheet" href="style.css">
+        <script src="https://unpkg.com/vue"></script>
+        <title>Matador de Monstros</title>
+    </head>
+    <body>
+        
+        <div id="app">
+            <div class="painel scores">
+                <div class="score">
+                    <h1>Jogador</h1>
+                    <div class="life-bar">
+                        <div class="life" :class=" playerLife < 20 ? 'danger' : '' " :style="{ width: playerLife + '%' }">
+                        </div>
+                    </div>
+                    <div>{{playerLife}}%</div>
+                </div>
+
+                <div class="score">
+                    <h1>Monstro</h1>
+                    <div class="life-bar">
+                        <div class="life" :class=" monsterLife < 20 ? 'danger' : '' " :style="{ width: monsterLife + '%' }" >
+                        </div>
+                    </div>
+                    <div>{{monsterLife}}%</div>
+                </div>
+
+            </div>
+                
+            <div class="painel result" v-if="hasResult">
+                <div v-if="monsterLife == 0" class="win">Voce Ganhou.</div>
+                <div v-if="playerLife == 0" class="win">Voce Perdeu.</div>
+            </div>
+            <div class="painel buttons">
+                <template v-if="running == true">
+                    <button class="btn attack" @click="attack(false)">Ataque</button>
+                    <button v-if="contEspecial == 0" class="btn especial" @click="attack(true)">Especial</button>
+                    <button class="btn heal" @click="healAndHurt">Curar</button>
+                    <button class="btn give-up" @click="running = false">Desistir</button>
+                </template>
+                
+                <button v-if="running == false" class="btn new-game" @click="startGame()">Iniciar Jogo</button>
+            </div>
+            <div v-if="logs.length" class="painel logs">
+                <ul>
+                    <li v-for="log in logs" :class="log.cls">{{ log.text }}</li>
+                </ul>
+            </div>
+
+        </div>
+
+        <script src="app.js"></script>
+
+    </body>
+</html>
