@@ -69,6 +69,9 @@ new Vue({
 
         registerLog(text, cls){
             this.logs.unshift({text, cls})
+            if(this.logs.length > 10){
+                this.logs.pop()
+            }
         }
     },
 
